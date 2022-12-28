@@ -24,43 +24,6 @@ class LegendFactory {
     }
 }
 
-class BoundaryLayoutStrategy {
-    constructor(x, y, width, height, boundaryOffset) {
-        this.positions = []
-
-        this.boundaryOffset = boundaryOffset
-
-        this.x = x
-        this.y = y
-        this.width = width
-        this.height = height
-    }
-
-    buildLegend(node) {
-
-        const connectorNodes = []
-
-        const text = figma.createText()
-        // text.x = position.x
-        // text.y = position.y
-        text.characters = 'Hello world!'
-        text.fontSize = 14
-        text.fills = [{ 
-            type: 'SOLID', 
-            color: { r: 0, g: 0, b: 0 }
-        }]
-        
-        // What is the position of `node` in relation to the component? top, left, bottom, right?
-        const xMidDiff = node.x
-        // What are the available areas around the component that aren't already occupied by other legend items?
-
-        return {
-            connectorNodes,
-            textNode
-        }
-    }
-}
-
 class CascadeLayoutStrategy {
     constructor(x, y, width, height) {
         const initialOffsetX = 200
@@ -225,13 +188,6 @@ async function main() {
 
     const node = figma.currentPage.selection[0]
 
-    const boundaryStrategy = new BoundaryLayoutStrategy(
-        node.x, 
-        node.y,
-        node.width,
-        node.height,
-        25
-    )
     const cascadeStrategy = new CascadeLayoutStrategy(
         node.x, 
         node.y,
