@@ -1,0 +1,8 @@
+{
+  "name": "component-legend-generator",
+  "version": "1.0.0",
+  "description": "Figma plugin to generate component legends",
+  "main": "code.js",
+  "scripts": {
+  }
+}
